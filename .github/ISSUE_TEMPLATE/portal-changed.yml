@@ -1,0 +1,29 @@
+name: Portal changed
+description: An official portal moved, redesigned, or an adapter broke against it
+labels: [adapter]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Portal URL
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What changed
+      description: What the adapter expected and what it found. Redact your plate.
+    validations:
+      required: true
+  - type: checkboxes
+    id: fallback
+    attributes:
+      label: Fallback
+      options:
+        - label: The tool fell back to a manual handoff rather than crashing

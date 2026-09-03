@@ -1,0 +1,97 @@
+{
+  "$comment": "The only URLs this project is allowed to send a user to. Source of truth for the list: SFDI/CENDIS signpost, re-checked at least once a year. If a country is missing, we say so and link its ministry of transport. Never a reseller.",
+  "signpost": {
+    "name": "SFDI / CENDIS — e-vignettes in Central Europe",
+    "url": "https://edalnice.gov.cz/cs/elektronicke-dalnicni-znamky-ve-stredni-evrope",
+    "verifiedAt": "2026-09-03"
+  },
+  "portals": [
+    {
+      "country": "CZ",
+      "operator": "SFDI / CENDIS",
+      "shop": "https://edalnice.gov.cz",
+      "checkUrl": "https://edalnice.gov.cz",
+      "openData": "https://od.edalnice.gov.cz",
+      "scope": ["vignette"],
+      "notes": "Single official state e-shop. Validity check for a plate is on the homepage. Offline distributors: Czech Post, EuroOil and RoBiN OIL stations — same price.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "SK",
+      "operator": "Narodna dialnicna spolocnost / SkyToll",
+      "shop": "https://eznamka.sk",
+      "checkUrl": "https://eznamka.sk/selfcare/validity-check",
+      "scope": ["vignette"],
+      "notes": "Only official sales channel. Since March 2026 also at regional post offices (Posta 1) at the same price.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "AT",
+      "operator": "ASFINAG",
+      "shop": "https://shop.asfinag.at",
+      "checkUrl": "https://www.asfinag.at/maut-vignette/digitale-vignette/",
+      "scope": ["vignette", "section-toll", "foreign:SI"],
+      "notes": "Also sells section tolls, and the Slovenian e-vinjeta as an authorised DARS partner with no surcharge. ASFINAG's terms exclude resale of digital toll products by third parties.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "HU",
+      "operator": "Nemzeti Utdijfizetesi Szolgaltato Zrt. (NUSZ)",
+      "shop": "https://nemzetiutdij.hu",
+      "checkUrl": "https://nemzetiutdij.hu",
+      "scope": ["vignette"],
+      "notes": "National and county (varmegyei) e-matrica. Year of validity is chosen at purchase and cannot be corrected afterwards.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "SI",
+      "operator": "DARS",
+      "shop": "https://evinjeta.dars.si",
+      "checkUrl": "https://evinjeta.dars.si",
+      "scope": ["vignette"],
+      "notes": "Authorised online resellers exist (ASFINAG, Petrol, ADAC) and sell at face value. DARS forbids sale through unauthorised shops.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "HR",
+      "operator": "Hrvatske autoceste (HAC), Bina-Istra, Autocesta Zagreb-Macelj",
+      "shop": "https://hac.hr",
+      "scope": ["toll-gate"],
+      "notes": "No vignette exists. Distance-based toll paid at the gate on exit. Nothing can be bought in advance. Free-flow system (Crolibertas) announced for 2027-03-01.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "CH",
+      "operator": "Federal Office for Customs and Border Security (BAZG)",
+      "shop": "https://via.admin.ch",
+      "scope": ["vignette"],
+      "coverage": "listed-only",
+      "notes": "Listed for completeness. No adapter and no rule data in v1.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "RO",
+      "operator": "CNAIR",
+      "shop": "https://erovinieta.ro",
+      "scope": ["vignette"],
+      "coverage": "listed-only",
+      "notes": "Listed for completeness. No adapter and no rule data in v1.",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "country": "BG",
+      "operator": "BGTOLL (Road Infrastructure Agency)",
+      "shop": "https://bgtoll.bg",
+      "scope": ["vignette"],
+      "coverage": "listed-only",
+      "notes": "Listed for completeness. No adapter and no rule data in v1.",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "fallbackMinistry": {
+    "$comment": "Used when a country has no known official portal. Better a gap than a reseller.",
+    "CH": "https://www.astra.admin.ch",
+    "RO": "https://www.mt.ro",
+    "BG": "https://www.mtc.government.bg"
+  }
+}

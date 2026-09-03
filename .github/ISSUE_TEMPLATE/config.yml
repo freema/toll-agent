@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Found a reseller link in this tool?
+    url: https://github.com/freema/toll-agent/security/advisories/new
+    about: Report it as a security issue. This tool must only ever link official state portals.

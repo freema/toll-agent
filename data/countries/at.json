@@ -1,0 +1,236 @@
+{
+  "country": "AT",
+  "name": { "en": "Austria", "cs": "Rakousko" },
+  "system": "vignette+section-toll",
+  "currency": "EUR",
+  "portal": "https://shop.asfinag.at",
+  "checkUrl": "https://www.asfinag.at/maut-vignette/digitale-vignette/",
+  "scopeLimit": { "maxWeightKg": 3500, "aboveLimit": "https://www.go-maut.at" },
+  "verifiedAt": "2026-09-03",
+  "tollClasses": [
+    {
+      "id": "motorcycle",
+      "label": { "en": "Single-track motor vehicle", "cs": "Jednostopé vozidlo" },
+      "when": { "category": "motorcycle" }
+    },
+    {
+      "id": "car",
+      "label": { "en": "Multi-track vehicle up to 3.5 t", "cs": "Vícestopé vozidlo do 3,5 t" },
+      "when": { "category": "car", "maxWeightKg": { "lte": 3500 } }
+    }
+  ],
+  "products": [
+    {
+      "id": "at-annual-car",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "Annual 2026", "cs": "Roční 2026" },
+      "validity": { "type": "season", "from": "2025-12-01", "to": "2027-01-31", "year": 2026 },
+      "price": { "amount": 106.8 },
+      "online": { "validFromDays": 18, "immediateChannels": ["retail"] },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-2month-car",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "2-month", "cs": "Dvouměsíční" },
+      "validity": { "type": "rolling-months", "months": 2 },
+      "price": { "amount": 32.0 },
+      "online": { "validFromDays": 18, "immediateChannels": ["retail"] },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-10day-car",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "10-day", "cs": "Desetidenní" },
+      "validity": { "type": "rolling-days", "days": 10 },
+      "price": { "amount": 12.8 },
+      "online": { "validFromDays": 0 },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-1day-car",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "1-day (digital only)", "cs": "Jednodenní (jen digitální)" },
+      "validity": { "type": "rolling-days", "days": 1 },
+      "price": { "amount": 9.6 },
+      "online": { "validFromDays": 0 },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-annual-moto",
+      "class": "motorcycle",
+      "kind": "vignette",
+      "label": { "en": "Annual 2026", "cs": "Roční 2026" },
+      "validity": { "type": "season", "from": "2025-12-01", "to": "2027-01-31", "year": 2026 },
+      "price": { "amount": 42.7 },
+      "online": { "validFromDays": 18, "immediateChannels": ["retail"] },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-2month-moto",
+      "class": "motorcycle",
+      "kind": "vignette",
+      "label": { "en": "2-month", "cs": "Dvouměsíční" },
+      "validity": { "type": "rolling-months", "months": 2 },
+      "price": { "amount": 12.8 },
+      "online": { "validFromDays": 18, "immediateChannels": ["retail"] },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-10day-moto",
+      "class": "motorcycle",
+      "kind": "vignette",
+      "label": { "en": "10-day", "cs": "Desetidenní" },
+      "validity": { "type": "rolling-days", "days": 10 },
+      "price": { "amount": 5.1 },
+      "online": { "validFromDays": 0 },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-1day-moto",
+      "class": "motorcycle",
+      "kind": "vignette",
+      "label": { "en": "1-day (digital only)", "cs": "Jednodenní (jen digitální)" },
+      "validity": { "type": "rolling-days", "days": 1 },
+      "price": { "amount": 3.8 },
+      "online": { "validFromDays": 0 },
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "sectionTolls": [
+    {
+      "id": "at-gleinalm",
+      "name": "A 9 Pyhrn — Gleinalm tunnel",
+      "singleTripPrice": { "amount": 12.0, "class": "car" },
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-bosruck",
+      "name": "A 9 Pyhrn — Bosruck tunnel",
+      "singleTripPrice": { "amount": 7.0, "class": "car" },
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-tauern",
+      "name": "A 10 Tauern",
+      "singleTripPrice": { "amount": 15.0, "class": "car" },
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-karawanken",
+      "name": "A 11 Karawanken tunnel",
+      "singleTripPrice": { "amount": 9.0, "class": "car" },
+      "hint": "On the usual CZ/AT to Slovenia and Croatia route.",
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-brenner",
+      "name": "A 13 Brenner",
+      "singleTripPrice": { "amount": 12.5, "class": "car" },
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-arlberg",
+      "name": "S 16 Arlberg tunnel",
+      "singleTripPrice": { "amount": 13.0, "class": "car" },
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "purchase": {
+    "advanceDays": 365,
+    "startsImmediately": false,
+    "boundTo": "plate",
+    "source": "https://www.asfinag.at/maut-vignette/vignette/",
+    "verifiedAt": "2026-09-03",
+    "confidence": "medium"
+  },
+  "rules": [
+    {
+      "id": "at-18-day-rule",
+      "severity": "warning",
+      "text": {
+        "en": "2-month and annual digital vignettes bought online by a consumer are valid at the earliest from the 18th day after purchase (14-day statutory right of withdrawal). 1-day and 10-day vignettes are valid immediately. Buying at a petrol station, ÖAMTC, ARBÖ or ADAC is not distance selling and is valid immediately.",
+        "cs": "Dvouměsíční a roční digitální známka koupená online spotřebitelem platí nejdříve od 18. dne po nákupu (zákonná 14denní lhůta na odstoupení). Jednodenní a desetidenní platí okamžitě. Nákup na benzínce, u ÖAMTC, ARBÖ nebo ADAC není zásilkový obchod a platí hned."
+      },
+      "quote": "2-Monats- und Jahres-Vignetten sind aufgrund des Konsumentenschutzes auch weiterhin frühestens ab dem 18. Tag nach dem Online-Kauf gültig.",
+      "effect": "delays-validity",
+      "source": "https://www.asfinag.at/maut-vignette/vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-section-toll-separate",
+      "severity": "warning",
+      "text": {
+        "en": "Section tolls (Karawanken, Tauern, Brenner, Arlberg, Bosruck, Gleinalm) are not covered by the vignette and are paid separately. A digital section-toll ticket bought online is subject to the same 18-day rule.",
+        "cs": "Úsekové mýto (Karawanken, Tauern, Brenner, Arlberg, Bosruck, Gleinalm) známka nepokrývá, platí se zvlášť. Digitální úsekové mýto koupené online podléhá stejné 18denní lhůtě."
+      },
+      "effect": "extra-cost",
+      "source": "https://www.asfinag.at/maut-vignette/streckenmaut/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-sticker-ends-2027",
+      "severity": "info",
+      "text": {
+        "en": "The 2026 vignette year is the last one with a physical sticker. From 1 February 2027 Austria is digital only, which removes the 'buy it at a petrol station and drive now' escape hatch from the 18-day rule.",
+        "cs": "Rok 2026 je poslední s nálepkou. Od 1. února 2027 jede Rakousko jen digitálně, čímž zmizí únikový východ z 18denní lhůty přes nákup na benzínce."
+      },
+      "effect": "roadmap",
+      "source": "https://www.asfinag.at/ueber-uns/presse/pressemeldungen/klebevignette-2026-wird-feuerrot/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-sells-si-vignette",
+      "severity": "info",
+      "text": {
+        "en": "ASFINAG is an authorised DARS partner and sells the Slovenian e-vinjeta at face value — useful when you need both, but DARS itself remains the primary source.",
+        "cs": "ASFINAG je autorizovaný partner DARS a prodává slovinskou e-vinjetu bez přirážky — užitečné, když potřebuješ obojí, primárním zdrojem ale zůstává DARS."
+      },
+      "effect": "alternative-source",
+      "source": "https://shop.asfinag.at/en/products/slovenian-e-vignette/",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "at-above-3500",
+      "severity": "blocking",
+      "text": {
+        "en": "Vehicles over 3.5 t use GO-Box, not a vignette. Out of scope for this tool.",
+        "cs": "Vozidla nad 3,5 t používají GO-Box, ne známku. Mimo rozsah tohoto nástroje."
+      },
+      "when": { "maxWeightKg": { "gt": 3500 } },
+      "effect": "out-of-scope",
+      "source": "https://www.go-maut.at",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "at-section-toll-classes",
+      "text": "Section-toll prices are recorded for cars only; motorcycle and multi-trip card prices are not in the data yet.",
+      "severity": "info"
+    },
+    {
+      "id": "at-2027-season",
+      "text": "The 2027 vignette season (first digital-only year) is not in the data yet.",
+      "severity": "info"
+    }
+  ]
+}

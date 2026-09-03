@@ -1,0 +1,19 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+
+# Runtime state — never commit. Contains licence plates and purchase history.
+.toll-agent/
+journal/
+*.journal.jsonl
+
+# Browser profiles used by the devtools transport
+.browser-profile/
+
+.DS_Store
+.idea/
+.vscode/
+coverage/

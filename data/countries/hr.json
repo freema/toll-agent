@@ -1,0 +1,95 @@
+{
+  "country": "HR",
+  "name": { "en": "Croatia", "cs": "Chorvatsko" },
+  "system": "toll-gate",
+  "currency": "EUR",
+  "portal": "https://hac.hr",
+  "scopeLimit": { "maxWeightKg": 3500 },
+  "verifiedAt": "2026-09-03",
+  "tollClasses": [
+    {
+      "id": "IA",
+      "label": { "en": "Group IA — motorcycles", "cs": "Skupina IA — motocykly" },
+      "when": { "category": "motorcycle" }
+    },
+    {
+      "id": "I",
+      "label": {
+        "en": "Group I — two-axle vehicle up to 1.9 m high",
+        "cs": "Skupina I — dvounápravové vozidlo do výšky 1,9 m"
+      },
+      "when": { "category": "car", "totalHeightM": { "lt": 1.9 } }
+    },
+    {
+      "id": "II",
+      "label": {
+        "en": "Group II — two-axle vehicle 1.9 m or higher",
+        "cs": "Skupina II — dvounápravové vozidlo 1,9 m a vyšší"
+      },
+      "when": { "category": "car", "totalHeightM": { "gte": 1.9 } }
+    }
+  ],
+  "products": [],
+  "purchase": {
+    "advanceDays": 0,
+    "startsImmediately": false,
+    "boundTo": "none",
+    "prepurchase": false,
+    "source": "https://hac.hr",
+    "verifiedAt": "2026-09-03"
+  },
+  "rules": [
+    {
+      "id": "hr-no-vignette",
+      "severity": "blocking",
+      "text": {
+        "en": "Croatia has no vignette. Motorway toll is distance-based and paid at the gate when you exit, by card or cash. Nothing can be bought in advance and nothing can be prepared by this tool. Anyone selling you a 'Croatian vignette' is selling you something that does not exist.",
+        "cs": "Chorvatsko známku nemá. Mýtné se počítá podle ujeté vzdálenosti a platí se na bráně při výjezdu, kartou nebo hotově. Předem nejde koupit nic a tenhle nástroj tu nemá co připravit. Kdo ti prodává „chorvatskou známku“, prodává ti něco, co neexistuje."
+      },
+      "effect": "pay-on-site",
+      "source": "https://hac.hr",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hr-class-by-height",
+      "severity": "warning",
+      "text": {
+        "en": "The Croatian class is set by total vehicle height at 1.9 m (and axle count), which is a different rule from Slovenia's 1.3 m above the front axle. A roof box can move you up a class.",
+        "cs": "Chorvatskou třídu určuje celková výška vozidla na hranici 1,9 m (a počet náprav) — jiné pravidlo než slovinských 1,3 m nad přední nápravou. Střešní box tě může posunout o třídu výš."
+      },
+      "effect": "class-critical",
+      "source": "https://hac.hr",
+      "verifiedAt": "2026-09-03",
+      "confidence": "medium"
+    },
+    {
+      "id": "hr-crolibertas-2027",
+      "severity": "info",
+      "text": {
+        "en": "Croatia switches to a nationwide multi-lane free-flow system (Crolibertas) on 1 March 2027: plate registration plus ENC, no barriers. That is when an HR adapter becomes possible.",
+        "cs": "Chorvatsko přechází 1. března 2027 na celostátní free-flow systém (Crolibertas): registrace SPZ plus ENC, bez závor. Teprve tehdy dává smysl psát HR adaptér."
+      },
+      "effect": "roadmap",
+      "source": "https://www.hac.hr/en/about-us/eu-projects/the-recovery-and-resilience-facility/electronic-toll-collection-system",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hr-istria-separate",
+      "severity": "info",
+      "text": {
+        "en": "The Istrian Y (Bina-Istra) and the Zagreb-Macelj motorway are operated by different concessionaires with their own tariffs.",
+        "cs": "Istrijské Y (Bina-Istra) a dálnici Zagreb-Macelj provozují jiní koncesionáři s vlastními tarify."
+      },
+      "effect": "extra-cost",
+      "source": "https://hac.hr",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "hr-tariffs",
+      "text": "Per-section gate tariffs are not in the data. The tool says 'you pay at the gate' and does not estimate the amount.",
+      "severity": "info"
+    }
+  ]
+}

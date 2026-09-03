@@ -1,0 +1,149 @@
+{
+  "country": "CZ",
+  "name": { "en": "Czech Republic", "cs": "Česko" },
+  "system": "vignette",
+  "currency": "CZK",
+  "portal": "https://edalnice.gov.cz",
+  "checkUrl": "https://edalnice.gov.cz",
+  "scopeLimit": { "maxWeightKg": 3500, "aboveLimit": "https://myto.gov.cz" },
+  "verifiedAt": "2026-09-03",
+  "tollClasses": [
+    {
+      "id": "car",
+      "label": { "en": "Vehicle up to 3.5 t", "cs": "Vozidlo do 3,5 t" },
+      "when": { "maxWeightKg": { "lte": 3500 } }
+    }
+  ],
+  "products": [
+    {
+      "id": "cz-annual",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "Annual (365 days)", "cs": "Roční (365 dní)" },
+      "validity": { "type": "rolling-days", "days": 365 },
+      "price": { "amount": 2570 },
+      "variants": [
+        { "when": { "powertrain": { "in": ["bev", "hydrogen"] } }, "price": { "amount": 0 }, "note": "exempt" },
+        { "when": { "powertrain": { "in": ["cng", "lng", "biomethane"] } }, "price": { "amount": 1280 } },
+        { "when": { "powertrain": "phev", "co2GramsPerKm": { "lte": 50 } }, "price": { "amount": 640 } }
+      ],
+      "source": "https://edalnice.gov.cz/en/price-list",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "cz-30day",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "30-day", "cs": "30denní" },
+      "validity": { "type": "rolling-days", "days": 30 },
+      "price": { "amount": 480 },
+      "variants": [
+        { "when": { "powertrain": { "in": ["bev", "hydrogen"] } }, "price": { "amount": 0 }, "note": "exempt" },
+        { "when": { "powertrain": { "in": ["cng", "lng", "biomethane"] } }, "price": { "amount": 240 } },
+        { "when": { "powertrain": "phev", "co2GramsPerKm": { "lte": 50 } }, "price": { "amount": 120 } }
+      ],
+      "source": "https://edalnice.gov.cz/en/price-list",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "cz-10day",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "10-day", "cs": "10denní" },
+      "validity": { "type": "rolling-days", "days": 10 },
+      "price": { "amount": 300 },
+      "variants": [
+        { "when": { "powertrain": { "in": ["bev", "hydrogen"] } }, "price": { "amount": 0 }, "note": "exempt" },
+        { "when": { "powertrain": { "in": ["cng", "lng", "biomethane"] } }, "price": { "amount": 150 } },
+        { "when": { "powertrain": "phev", "co2GramsPerKm": { "lte": 50 } }, "price": { "amount": 70 } }
+      ],
+      "source": "https://edalnice.gov.cz/en/price-list",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "cz-1day",
+      "class": "car",
+      "kind": "vignette",
+      "label": { "en": "1-day", "cs": "Jednodenní" },
+      "validity": { "type": "rolling-days", "days": 1 },
+      "price": { "amount": 230 },
+      "variants": [
+        { "when": { "powertrain": { "in": ["bev", "hydrogen"] } }, "price": { "amount": 0 }, "note": "exempt" },
+        { "when": { "powertrain": { "in": ["cng", "lng", "biomethane"] } }, "price": { "amount": 110 } },
+        { "when": { "powertrain": "phev", "co2GramsPerKm": { "lte": 50 } }, "price": { "amount": 50 } }
+      ],
+      "source": "https://edalnice.gov.cz/en/price-list",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "purchase": {
+    "advanceDays": 90,
+    "startsImmediately": true,
+    "boundTo": "plate",
+    "source": "https://edalnice.gov.cz",
+    "verifiedAt": "2026-09-03",
+    "confidence": "medium"
+  },
+  "rules": [
+    {
+      "id": "cz-motorcycle-free",
+      "severity": "info",
+      "text": {
+        "en": "Motorcycles do not pay the Czech vignette.",
+        "cs": "Motocykly v ČR dálniční známku neplatí."
+      },
+      "when": { "category": "motorcycle" },
+      "effect": "not-required",
+      "source": "https://edalnice.gov.cz/cs/osvobozeni",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "cz-zero-emission-exempt",
+      "severity": "info",
+      "text": {
+        "en": "Zero-emission vehicles (battery-electric, hydrogen) are exempt, but the exemption must be registered — the plate still has to be in the system.",
+        "cs": "Vozidla s nulovými emisemi (BEV, vodík) jsou osvobozena, osvobození se ale musí zaevidovat — SPZ musí být v systému."
+      },
+      "when": { "powertrain": { "in": ["bev", "hydrogen"] } },
+      "effect": "register-exemption",
+      "source": "https://edalnice.gov.cz/en/exemption",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "cz-change-before-start",
+      "severity": "warning",
+      "text": {
+        "en": "A purchased vignette can only be changed before its validity starts. After that, neither the plate nor the date can be corrected.",
+        "cs": "Zakoupenou známku lze změnit jen před začátkem platnosti. Potom už nejde opravit ani SPZ, ani datum."
+      },
+      "effect": "verify-before-purchase",
+      "source": "https://edalnice.gov.cz/cs/sprava-znamky",
+      "verifiedAt": "2026-09-03",
+      "confidence": "medium"
+    },
+    {
+      "id": "cz-above-3500",
+      "severity": "blocking",
+      "text": {
+        "en": "Vehicles over 3.5 t do not use vignettes in Czechia; they use the myto.gov.cz electronic toll system. Out of scope for this tool.",
+        "cs": "Vozidla nad 3,5 t v ČR známku nepoužívají, platí mýtné přes myto.gov.cz. Mimo rozsah tohoto nástroje."
+      },
+      "when": { "maxWeightKg": { "gt": 3500 } },
+      "effect": "out-of-scope",
+      "source": "https://myto.gov.cz",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "cz-advance-window",
+      "text": "The exact advance-purchase window (documented here as 90 days) needs re-verification against the portal; the kickoff note said 30 days.",
+      "severity": "warning"
+    },
+    {
+      "id": "cz-foreign-ev",
+      "text": "Whether the zero-emission exemption applies to foreign-registered EVs without extra registration is not verified.",
+      "severity": "warning"
+    }
+  ]
+}

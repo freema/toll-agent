@@ -1,0 +1,250 @@
+{
+  "country": "HU",
+  "name": { "en": "Hungary", "cs": "Maďarsko" },
+  "system": "vignette",
+  "currency": "HUF",
+  "portal": "https://nemzetiutdij.hu",
+  "checkUrl": "https://nemzetiutdij.hu",
+  "scopeLimit": { "maxWeightKg": 3500, "aboveLimit": "https://hu-go.hu" },
+  "verifiedAt": "2026-09-03",
+  "tollClasses": [
+    {
+      "id": "D1M",
+      "label": { "en": "D1M — motorcycle", "cs": "D1M — motocykl" },
+      "when": { "category": "motorcycle" }
+    },
+    {
+      "id": "D1",
+      "label": {
+        "en": "D1 — car up to 3.5 t, max 7 seats",
+        "cs": "D1 — osobní vozidlo do 3,5 t, max. 7 míst"
+      },
+      "when": { "category": "car", "maxWeightKg": { "lte": 3500 } }
+    },
+    {
+      "id": "U",
+      "label": { "en": "U — trailer", "cs": "U — přívěs" },
+      "when": { "isTrailer": true }
+    }
+  ],
+  "products": [
+    {
+      "id": "hu-annual-d1",
+      "class": "D1",
+      "kind": "vignette",
+      "label": { "en": "Annual, national", "cs": "Roční, celostátní" },
+      "validity": { "type": "season", "from": "2026-01-01", "to": "2027-01-31", "year": 2026 },
+      "price": { "amount": 61760 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-monthly-d1",
+      "class": "D1",
+      "kind": "vignette",
+      "label": { "en": "Monthly, national", "cs": "Měsíční, celostátní" },
+      "validity": { "type": "rolling-months", "months": 1 },
+      "price": { "amount": 11170 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-weekly-d1",
+      "class": "D1",
+      "kind": "vignette",
+      "label": { "en": "Weekly, national (10 days)", "cs": "Týdenní, celostátní (10 dní)" },
+      "validity": { "type": "rolling-days", "days": 10 },
+      "price": { "amount": 6900 },
+      "online": { "validFromDays": 0 },
+      "note": "The Hungarian 'weekly' product is 10 days long — the official 2026 price table calls it 'Heti (10 napos)'.",
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-daily-d1",
+      "class": "D1",
+      "kind": "vignette",
+      "label": { "en": "Daily, national", "cs": "Denní, celostátní" },
+      "validity": { "type": "rolling-days", "days": 1 },
+      "price": { "amount": 5550 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-county-d1",
+      "class": "D1",
+      "kind": "vignette-regional",
+      "label": { "en": "Annual, one county (varmegyei)", "cs": "Roční, jedna župa (vármegyei)" },
+      "validity": { "type": "season", "from": "2026-01-01", "to": "2027-01-31", "year": 2026 },
+      "price": { "amount": 7190 },
+      "online": { "validFromDays": 0 },
+      "coverage": "one county only — you need one per county your route crosses",
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-annual-d1m",
+      "class": "D1M",
+      "kind": "vignette",
+      "label": { "en": "Annual, national", "cs": "Roční, celostátní" },
+      "validity": { "type": "season", "from": "2026-01-01", "to": "2027-01-31", "year": 2026 },
+      "price": { "amount": 61760 },
+      "online": { "validFromDays": 0 },
+      "note": "Motorcycles buy the annual national, annual county and M1 regional products in the D1 category.",
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-monthly-d1m",
+      "class": "D1M",
+      "kind": "vignette",
+      "label": { "en": "Monthly, national", "cs": "Měsíční, celostátní" },
+      "validity": { "type": "rolling-months", "months": 1 },
+      "price": { "amount": 5590 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-weekly-d1m",
+      "class": "D1M",
+      "kind": "vignette",
+      "label": { "en": "Weekly, national (10 days)", "cs": "Týdenní, celostátní (10 dní)" },
+      "validity": { "type": "rolling-days", "days": 10 },
+      "price": { "amount": 3450 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-daily-d1m",
+      "class": "D1M",
+      "kind": "vignette",
+      "label": { "en": "Daily, national", "cs": "Denní, celostátní" },
+      "validity": { "type": "rolling-days", "days": 1 },
+      "price": { "amount": 2770 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-daily-u",
+      "class": "U",
+      "kind": "vignette",
+      "label": { "en": "Daily, national (trailer)", "cs": "Denní, celostátní (přívěs)" },
+      "validity": { "type": "rolling-days", "days": 1 },
+      "price": { "amount": 5550 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-weekly-u",
+      "class": "U",
+      "kind": "vignette",
+      "label": { "en": "Weekly, national (10 days, trailer)", "cs": "Týdenní, celostátní (10 dní, přívěs)" },
+      "validity": { "type": "rolling-days", "days": 10 },
+      "price": { "amount": 6900 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-annual-u",
+      "class": "U",
+      "kind": "vignette",
+      "label": { "en": "Annual, national (trailer)", "cs": "Roční, celostátní (přívěs)" },
+      "validity": { "type": "season", "from": "2026-01-01", "to": "2027-01-31", "year": 2026 },
+      "price": { "amount": 61760 },
+      "online": { "validFromDays": 0 },
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "purchase": {
+    "advanceDays": 30,
+    "startsImmediately": true,
+    "boundTo": "plate",
+    "source": "https://nemzetiutdij.hu",
+    "verifiedAt": "2026-09-03",
+    "confidence": "low"
+  },
+  "rules": [
+    {
+      "id": "hu-weekly-is-ten-days",
+      "severity": "warning",
+      "text": {
+        "en": "The Hungarian 'weekly' e-matrica is 10 days, not 7. The official 2026 tariff calls it 'Heti (10 napos)'.",
+        "cs": "Maďarská „týdenní“ e-matrica platí 10 dní, ne 7. Oficiální sazebník 2026 ji uvádí jako „Heti (10 napos)“."
+      },
+      "effect": "timing",
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-county-structure",
+      "severity": "warning",
+      "text": {
+        "en": "Hungary also sells annual county (varmegyei) vignettes. One is needed per county the route crosses, so a transit trip can need several — compare the total against the national annual before buying.",
+        "cs": "Maďarsko prodává i roční župní (vármegyei) známky. Potřebuješ jednu na každou župu, kterou trasa protne, takže tranzit může vyjít na několik — před nákupem porovnej součet s celostátní roční."
+      },
+      "effect": "alternative-product",
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-year-cannot-be-corrected",
+      "severity": "warning",
+      "text": {
+        "en": "The year of validity is chosen at purchase and cannot be corrected afterwards. Check it before paying.",
+        "cs": "Rok platnosti se vybírá při nákupu a už ho nejde opravit. Zkontroluj ho před zaplacením."
+      },
+      "effect": "verify-before-purchase",
+      "source": "https://nemzetiutdij.hu",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-penalty",
+      "severity": "info",
+      "text": {
+        "en": "Driving without a valid e-matrica costs 27 790 HUF if paid within 60 days, 95 730 HUF after that (2026 rates).",
+        "cs": "Jízda bez platné e-matricy stojí 27 790 HUF při zaplacení do 60 dnů, po nich 95 730 HUF (sazby 2026)."
+      },
+      "effect": "penalty",
+      "source": "https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf",
+      "verifiedAt": "2026-09-03"
+    },
+    {
+      "id": "hu-above-3500",
+      "severity": "blocking",
+      "text": {
+        "en": "Vehicles over 3.5 t use HU-GO distance-based tolling, not an e-matrica. Out of scope for this tool.",
+        "cs": "Vozidla nad 3,5 t platí výkonové mýto HU-GO, ne e-matricu. Mimo rozsah tohoto nástroje."
+      },
+      "when": { "maxWeightKg": { "gt": 3500 } },
+      "effect": "out-of-scope",
+      "source": "https://hu-go.hu",
+      "verifiedAt": "2026-09-03"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "hu-county-map",
+      "text": "There is no county-to-route mapping in the data, so the tool cannot yet tell you WHICH county vignettes a route needs. It only tells you the option exists.",
+      "severity": "warning"
+    },
+    {
+      "id": "hu-season-window",
+      "text": "The annual season window (1 Jan - 31 Jan of the following year) and the date from which next year's vignette can be bought need verification against NUSZ.",
+      "severity": "warning"
+    },
+    {
+      "id": "hu-d2-out-of-scope",
+      "text": "Category D2 (over 3.5 t / more than 7 seats) is priced in the official table but deliberately not modelled in v1.",
+      "severity": "info"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+name: Rule or price correction
+description: A rule, price or validity window in data/ is wrong or out of date
+labels: [data]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the most valuable kind of issue here. A wrong price is a fine somebody pays.
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      placeholder: CZ / AT / SI / SK / HU / HR
+    validations:
+      required: true
+  - type: input
+    id: rule
+    attributes:
+      label: Which rule or product
+      placeholder: at-18-day-rule, si-monthly-2b, ...
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What our data says, and what is actually true
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL
+      description: An operator or state portal page. Not a blog, not a comparison site, not a reseller.
+    validations:
+      required: true
+  - type: input
+    id: verified
+    attributes:
+      label: Date you checked it (YYYY-MM-DD)
+    validations:
+      required: true

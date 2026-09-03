@@ -1,0 +1,64 @@
+# Prices in this region change every January and February. This job exists so the
+# repository notices that on its own instead of quietly lying with confidence.
+name: Data freshness
+
+on:
+  schedule:
+    - cron: '0 7 1 * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: npm
+      - run: npm ci
+      - id: age
+        name: How old is the rule data?
+        run: |
+          node --input-type=module -e "
+            import { readdirSync, readFileSync } from 'node:fs';
+            const today = new Date().toISOString().slice(0, 10);
+            const stale = [];
+            for (const file of readdirSync('data/countries')) {
+              const data = JSON.parse(readFileSync('data/countries/' + file, 'utf8'));
+              const days = Math.round((Date.parse(today) - Date.parse(data.verifiedAt)) / 86400000);
+              if (days > 180) stale.push(data.country + ' (' + days + ' days, verified ' + data.verifiedAt + ')');
+            }
+            console.log('stale=' + stale.join(', '));
+          " >> \$GITHUB_OUTPUT
+      - name: Open an issue when data has gone stale
+        if: contains(steps.age.outputs.stale, '(')
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const stale = `${{ steps.age.outputs.stale }}`;
+            const title = 'Rule data is over 180 days old';
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open', labels: 'data-freshness',
+            });
+            const body = [
+              'These country files have not been re-verified in more than 180 days:',
+              '',
+              stale,
+              '',
+              'Prices change every January and February. Re-check each rule against its `source` URL,',
+              'update `verifiedAt`, and add or remove entries in `gaps` as needed.',
+            ].join('\n');
+            if (existing.data.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existing.data[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['data-freshness'],
+              });
+            }
