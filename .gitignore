@@ -6,8 +6,9 @@ dist/
 !.env.example
 
 # Runtime state — never commit. Contains licence plates and purchase history.
-.toll-agent/
-journal/
+# Anchored to the repository root so src/journal/ (the code) is not swept up.
+/.toll-agent/
+/journal/
 *.journal.jsonl
 
 # Browser profiles used by the devtools transport
