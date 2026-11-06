@@ -10,7 +10,10 @@ import { SUPPORTED_COUNTRIES, LISTED_COUNTRIES, type CountryCode } from '../type
 
 const countryEnum = z.enum([...SUPPORTED_COUNTRIES, ...LISTED_COUNTRIES]);
 
-const vehicleShape = z.object({
+// Strict objects throughout: zod 4 only advertises `additionalProperties: false` for a strict
+// object, and a misspelt field (say `heightAboveFrontAxle`) should be rejected by name instead of
+// being dropped silently and leaving the toll class undecided.
+const vehicleShape = z.strictObject({
   category: z.enum(['car', 'motorcycle']).default('car'),
   maxWeightKg: z.number().positive().describe('Technically permissible maximum laden mass in kg.'),
   heightAboveFrontAxleM: z
@@ -29,7 +32,7 @@ const vehicleShape = z.object({
   co2GramsPerKm: z.number().nonnegative().optional(),
   plate: z.string().optional().describe('Licence plate exactly as written on the plate.'),
   registrationCountry: z.string().length(2).optional(),
-  trailer: z.object({ maxWeightKg: z.number().positive() }).optional(),
+  trailer: z.strictObject({ maxWeightKg: z.number().positive() }).optional(),
 });
 
 const server = new McpServer(
@@ -52,7 +55,7 @@ server.registerTool(
       'Given the countries a trip crosses, the vehicle and the dates, returns what has to be paid, ' +
       'which product covers the trip, what it costs, and what has to be paid on the spot. ' +
       'Deterministic and offline — it reads verified data files, not the web.',
-    inputSchema: {
+    inputSchema: z.strictObject({
       route: z.array(countryEnum).min(1).describe('Countries crossed, in any order.'),
       vehicle: vehicleShape,
       from: z.string().describe('First day of the trip, YYYY-MM-DD.'),
@@ -65,7 +68,7 @@ server.registerTool(
           "How it would be bought. 'retail' means a petrol station or motoring club counter, " +
             "which in Austria escapes the 18-day online rule.",
         ),
-    },
+    }),
   },
   async ({ route, vehicle, from, to, purchaseOn, purchaseChannel }) => {
     const result = resolve({
@@ -86,7 +89,7 @@ server.registerTool(
       'The allowlist of official state e-shops, one per country, with operator and verification date. ' +
       'This is the only list of URLs a user may be sent to. Resellers with a 20-30% markup are the ' +
       'reason this project exists; never link one.',
-    inputSchema: { country: countryEnum.optional() },
+    inputSchema: z.strictObject({ country: countryEnum.optional() }),
   },
   async ({ country }) => {
     const portals = loadPortals();
@@ -108,7 +111,7 @@ server.registerTool(
       'The raw verified rule set for a country: toll classes, products with prices, and the traps ' +
       "(Austria's 18-day online rule, Slovenia's height above the front axle, Hungary's 10-day 'weekly', " +
       'Croatia having no vignette at all). Each entry carries its source and the date it was verified.',
-    inputSchema: { country: countryEnum },
+    inputSchema: z.strictObject({ country: countryEnum }),
   },
   async ({ country }) => {
     if (!isSupported(country)) {
@@ -139,11 +142,11 @@ server.registerTool(
       'Asks the official portal what is already valid for a licence plate. In v1 no portal is ' +
       'automated, so this returns a manual handoff: the official check URL and the plate to type in. ' +
       'Never report a vignette as valid on the strength of this tool alone unless the outcome is "ok".',
-    inputSchema: {
+    inputSchema: z.strictObject({
       country: countryEnum,
       plate: z.string(),
       registrationCountry: z.string().length(2).optional(),
-    },
+    }),
   },
   async ({ country, plate, registrationCountry }) => {
     if (!isSupported(country)) {

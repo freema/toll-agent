@@ -24,7 +24,7 @@ people fines, and sends you to the official portal — the one where the price i
 ## What it does
 
 ```bash
-npx toll-agent plan --route CZ,AT,SI,HR --from 2026-07-15 --to 2026-07-25 \
+toll-agent plan --route CZ,AT,SI,HR --from 2026-07-15 --to 2026-07-25 \
   --plate 1AB2345 --front-height 1.25 --buy-on 2026-07-10
 ```
 
@@ -87,16 +87,29 @@ this ([`test/data.test.ts`](test/data.test.ts)).
 
 ## Install
 
+toll-agent is not on npm yet, so `npx toll-agent` does not work. Until it is published, run it from a
+clone (Node ≥ 20.10):
+
 ```bash
-npx toll-agent plan --route CZ,AT --from 2026-07-15 --to 2026-07-20
+git clone https://github.com/freema/toll-agent.git
+cd toll-agent
+npm ci
+npm run build
+node dist/cli/cli.js plan --route CZ,AT --from 2026-07-15 --to 2026-07-20
 ```
 
-As an MCP server (stdio) — add to your MCP client's config:
+Running `npm link` in the clone puts a `toll-agent` command on your `PATH`, which is the form the
+examples in this README use.
+
+As an MCP server (stdio) — add to your MCP client's config, with the absolute path to your clone:
 
 ```json
 {
   "mcpServers": {
-    "toll-agent": { "command": "npx", "args": ["-y", "toll-agent", "mcp"] }
+    "toll-agent": {
+      "command": "node",
+      "args": ["/absolute/path/to/toll-agent/dist/cli/cli.js", "mcp"]
+    }
   }
 }
 ```
@@ -110,7 +123,8 @@ Tools it exposes:
 | `toll_country_rules` | The raw verified rule set for one country, sources included. |
 | `toll_check` | What a plate already has. In v1 a manual handoff to the official check page. |
 
-As a library:
+As a library (until the package is on npm, add it to your project from the built clone with
+`npm install /absolute/path/to/toll-agent`):
 
 ```ts
 import { resolve } from 'toll-agent';

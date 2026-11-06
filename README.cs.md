@@ -20,8 +20,11 @@ lidé platí pokuty, a pošle tě na oficiální portál — tam, kde cena je ce
 
 ## Co to umí
 
+Balíček zatím není na npm, takže `npx toll-agent` nefunguje. Instalace z klonu repozitáře je popsaná
+v [README.md](README.md#install).
+
 ```bash
-npx toll-agent plan --route CZ,AT,SI,HR --from 2026-07-15 --to 2026-07-25 \
+toll-agent plan --route CZ,AT,SI,HR --from 2026-07-15 --to 2026-07-25 \
   --plate 1AB2345 --front-height 1.25 --buy-on 2026-07-10
 ```
 

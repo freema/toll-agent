@@ -18,7 +18,7 @@ const comparison = z
   })
   .strict();
 
-const predicate = z.record(z.union([z.string(), z.number(), z.boolean(), comparison]));
+const predicate = z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), comparison]));
 
 const localised = z.object({ en: z.string(), cs: z.string().optional() }).passthrough();
 
@@ -130,7 +130,7 @@ export const portalsSchema = z.object({
       verifiedAt: isoDate,
     }),
   ),
-  fallbackMinistry: z.record(z.string()).optional(),
+  fallbackMinistry: z.record(z.string(), z.string()).optional(),
 });
 
 export type CountryData = z.infer<typeof countrySchema>;
